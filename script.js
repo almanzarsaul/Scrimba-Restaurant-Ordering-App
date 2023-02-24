@@ -9,6 +9,11 @@ let totalPrice = 0;
 totalPriceEl.innerText = totalPrice;
 
 menu.innerHTML = renderMenu(menuArray);
+menu.addEventListener("click", function (event) {
+  if (event.target.classList.contains("add-btn")) {
+    handleAddToCart(event.target.dataset.name, event.target.dataset.price);
+  }
+});
 
 function renderMenu(menu) {
   let menuHtml = "";
@@ -30,13 +35,22 @@ function renderMenu(menu) {
           <p class="ingredients">${ingredients}</p>
           <p class="price">$${item.price}</p>
       </div>
-      <button class="add-btn align-right">+</button>
+      <button class="add-btn align-right" data-name="${item.name}" data-price="${item.price}">+</button>
   </section>
   `;
   });
 
   return menuHtml;
 }
+
+function handleAddToCart(name, price) {
+  checkoutItems.push({ name, price });
+  totalPrice += Number(price);
+  checkout.innerHTML = renderCheckout(checkoutItems);
+  totalPriceEl.innerText = totalPrice;
+}
+
+function handleRemoveFromCart() {}
 
 function renderCheckout(items) {
   let checkoutHtml = "";
