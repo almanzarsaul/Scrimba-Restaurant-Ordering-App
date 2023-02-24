@@ -1,6 +1,7 @@
 .menu-item {
     display: flex;
     align-items: center;
+    border-bottom: #d2d2d2 1px solid;
 }
 
 .align-right {
@@ -8,7 +9,8 @@
 }
 
 .food-pic {
-    font-size: 80px;
+    font-size: 70px;
+    margin-right: 20px;
 }
 
 .add-btn {
@@ -23,4 +25,9 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
+}
+
+.checkout-item {
+    display: flex;
+    align-items: center;
 }
