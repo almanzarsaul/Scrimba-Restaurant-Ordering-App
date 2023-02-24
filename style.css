@@ -1,0 +1,26 @@
+.menu-item {
+    display: flex;
+    align-items: center;
+}
+
+.align-right {
+    margin-left: auto;
+}
+
+.food-pic {
+    font-size: 80px;
+}
+
+.add-btn {
+    color: #3c3c3c;
+    background-color: white;
+    border: #dedede 1.5px solid;
+    border-radius: 50%;
+    font-size: 24px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
