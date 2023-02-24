@@ -44,3 +44,18 @@
 .hidden {
     display: none;
 }
+
+#checkout {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.primary-btn {
+    cursor: pointer;
+    padding: 20px;
+    border: none;
+    border-radius: 3px;
+    background-color: #16DB99;
+    color: white;
+}

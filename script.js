@@ -8,8 +8,6 @@ const totalPriceEl = document.getElementById("total-price");
 let checkoutItems = [];
 let totalPrice = 0;
 
-totalPriceEl.innerText = totalPrice;
-
 menu.innerHTML = renderMenu(menuArray);
 menu.addEventListener("click", function (event) {
   if (event.target.classList.contains("add-btn")) {
