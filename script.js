@@ -1,7 +1,8 @@
 import { menuArray } from "./data.js";
 import { v4 as uuidv4 } from "https://jspm.dev/uuid";
 const menu = document.getElementById("menu");
-const checkout = document.getElementById("checkout-items");
+const checkout = document.getElementById("checkout");
+const checkoutList = document.getElementById("checkout-items");
 const totalPriceEl = document.getElementById("total-price");
 
 let checkoutItems = [];
@@ -54,9 +55,13 @@ function renderMenu(menu) {
 }
 
 function handleAddToCart(name, price) {
+  if (checkoutItems.length === 0) {
+    // If this is the first item being added, show the checkout
+    checkout.classList.remove("hidden");
+  }
   checkoutItems.push({ id: uuidv4(), name, price });
   totalPrice += Number(price);
-  checkout.innerHTML = renderCheckout(checkoutItems);
+  checkoutList.innerHTML = renderCheckout(checkoutItems);
   totalPriceEl.innerText = totalPrice;
 }
 
@@ -64,8 +69,12 @@ function handleRemoveFromCart(id, price) {
   checkoutItems = checkoutItems.filter(function (item) {
     return item.id !== id;
   });
+  if (checkoutItems.length === 0) {
+    // If user is removing the last item, hide the checkout section
+    checkout.classList.add("hidden");
+  }
   totalPrice -= Number(price);
-  checkout.innerHTML = renderCheckout(checkoutItems);
+  checkoutList.innerHTML = renderCheckout(checkoutItems);
   totalPriceEl.innerText = totalPrice;
 }
 
