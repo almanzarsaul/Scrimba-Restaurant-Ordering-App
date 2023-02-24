@@ -31,3 +31,12 @@
     display: flex;
     align-items: center;
 }
+
+#checkout-items {
+    border-bottom: #393333 1px solid;
+}
+
+.checkout-price-section {
+    display: flex;
+    justify-content: space-between;
+}
