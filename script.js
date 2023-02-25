@@ -4,6 +4,9 @@ const menu = document.getElementById("menu");
 const checkout = document.getElementById("checkout");
 const checkoutList = document.getElementById("checkout-items");
 const totalPriceEl = document.getElementById("total-price");
+const paymentModal = document.getElementById("payment-modal");
+const payBtn = document.getElementById("pay-btn");
+const paymentForm = document.getElementById("payment-form");
 
 let checkoutItems = [];
 let totalPrice = 0;
@@ -16,12 +19,21 @@ menu.addEventListener("click", function (event) {
 });
 
 checkout.addEventListener("click", function (event) {
+  event.preventDefault();
   if (event.target.dataset.removeId) {
     handleRemoveFromCart(
       event.target.dataset.removeId,
       event.target.dataset.removePrice
     );
+  } else if (event.target.id === "checkout-btn") {
+    paymentModal.classList.remove("hidden");
   }
+});
+
+paymentForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+  const formData = new FormData(paymentForm);
+  pay(formData.get("name"));
 });
 
 function renderMenu(menu) {
@@ -88,4 +100,13 @@ function renderCheckout(items) {
   });
 
   return checkoutHtml;
+}
+
+function pay(name) {
+  paymentModal.classList.add("hidden");
+  checkout.innerHTML = `
+        <div>
+            Thanks, ${name}! Your order is on its way!
+        </div>
+    `;
 }
