@@ -6,12 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Restaurant Ordering App</title>
     <link rel="stylesheet" href="style.css" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Smythe&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <header>
       <div class="container">
-        <h1>Jimmy's Diner</h1>
-        <p>The best burgers and pizzas in town.</p>
+        <h1 class="logo">Jimmy's Diner</h1>
+        <p class="motto">The best burgers and pizzas in town.</p>
       </div>
     </header>
     <div class="container">
@@ -32,7 +39,7 @@
       </section>
 
       <div id="payment-modal" class="hidden">
-        <div class="payment-modal">
+        <div class="payment-modal" id="overlay">
           <div class="payment-modal-inner">
             <h1>Enter card details</h1>
             <form class="payment-form" id="payment-form">

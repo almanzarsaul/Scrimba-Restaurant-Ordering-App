@@ -5,13 +5,13 @@ const checkout = document.getElementById("checkout");
 const checkoutList = document.getElementById("checkout-items");
 const totalPriceEl = document.getElementById("total-price");
 const paymentModal = document.getElementById("payment-modal");
-const payBtn = document.getElementById("pay-btn");
 const paymentForm = document.getElementById("payment-form");
 
 let checkoutItems = [];
 let totalPrice = 0;
 
 menu.innerHTML = renderMenu(menuArray);
+
 menu.addEventListener("click", function (event) {
   if (event.target.classList.contains("add-btn")) {
     handleAddToCart(event.target.dataset.name, event.target.dataset.price);
@@ -93,9 +93,9 @@ function renderCheckout(items) {
   items.forEach(function (item) {
     checkoutHtml += `
         <div class="checkout-item">
-            <p>${item.name}</p>
-            <a href="#" data-remove-id="${item.id}" data-remove-price="${item.price}">remove</a>
-            <p class="align-right">$${item.price}</p>
+            <p class="checkout-item-name">${item.name}</p>
+            <a href="#" class="remove-btn" data-remove-id="${item.id}" data-remove-price="${item.price}">remove</a>
+            <p class="align-right checkout-item-price">$${item.price}</p>
         </div>`;
   });
 
@@ -105,7 +105,7 @@ function renderCheckout(items) {
 function pay(name) {
   paymentModal.classList.add("hidden");
   checkout.innerHTML = `
-        <div>
+        <div class="thanks-notice">
             Thanks, ${name}! Your order is on its way!
         </div>
     `;
